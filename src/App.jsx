@@ -7,7 +7,7 @@ import Typewriter from "typewriter-effect";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import ReactHowler from "react-howler";
-
+import FloatingHearts from "./components/FloatingHearts";
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
   project: "PROJECT_NAME",
@@ -143,6 +143,7 @@ const App = () => {
 
   return (
     <div className="relative min-h-screen bg-[#FFC5D3] overflow-hidden">
+      <FloatingHearts />
       <ReactHowler src={steps[currentStep].music} playing loop />
 
       {/* Particles Background */}
@@ -182,7 +183,7 @@ const App = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="min-h-[120px] text-white font-josefin text-3xl md:text-4xl font-bold text-center px-4"
+            className="min-h-[120px] text-[#FF1694] font-josefin text-3xl md:text-4xl font-bold text-center px-4"
           >
             <Typewriter
               options={{
@@ -199,7 +200,7 @@ const App = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentStep(currentStep + 1)}
-              className="bg-white text-[#FFC5D3] py-4 px-8 text-xl rounded-2xl w-full max-w-xs font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+              className="bg-white text-[#FF1694] py-4 px-8 text-xl rounded-2xl w-full max-w-xs font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
             >
               Next
             </motion.button>
@@ -218,6 +219,16 @@ const App = () => {
           )}
         </div>
       </div>
+
+      {/* Fixed Footer */}
+      <footer className="absolute bottom-0 left-0 right-0 p-4 text-white text-center bg-[#ff9fb6] bg-opacity-40 backdrop-blur-sm">
+        <p className="font-medium">
+          Made with 💖 by{" "}
+          <span className="font-bold hover:text-pink-200 transition-colors duration-300">
+            Subashish 😎
+          </span>
+        </p>
+      </footer>
 
       {/* Success Animation */}
       {sheSaidYes && <ConfettiAnimation width={width} height={height} />}
